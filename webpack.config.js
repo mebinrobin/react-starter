@@ -2,9 +2,11 @@ const path = require("path");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
-module.exports = {
+const isDev = (process.env.NODE_ENV || '').toLowerCase() != 'production';
+
+module.exports = Object.assign({}, {
     entry: './src/index.js',
-    mode: 'none',
+    mode: isDev ? 'development' : 'production',
     module: {
         rules: [
             {
@@ -33,24 +35,30 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, 'build/'),
         publicPath: '.',
-        filename: 'bundle.[contenthash].js'
+        filename: '[name].[contenthash].js'
     },
+    plugins: [
+        new CleanWebpackPlugin(),
+        new HtmlWebpackPlugin(Object.assign({},
+            {
+                title: 'App',
+                template: 'public/index.html',
+                favicon: 'public/favicon.ico'
+            },
+            !isDev ? {
+                minify: {
+                    collapseWhitespace: true,
+                    removeComments: true,
+                    useShortDoctype: true
+                }
+            } : undefined
+        ))
+    ],
+    devtool: isDev ? 'source-map' : 'none'
+}, isDev && {
     devServer: {
         contentBase: path.resolve(__dirname, 'build/'),
         port: 3000,
         publicPath: 'http://localhost:3000/',
-    },
-    plugins: [
-        new CleanWebpackPlugin(),
-        new HtmlWebpackPlugin({
-            title: 'App',
-            template: 'public/index.html',
-            favicon: 'public/favicon.ico',
-            minify: {
-                collapseWhitespace: true,
-                removeComments: true,
-                useShortDoctype: true
-            }
-        })
-    ]
-};
+    }
+});
