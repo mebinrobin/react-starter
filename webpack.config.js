@@ -1,47 +1,49 @@
 const path = require("path");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
-    entry: "./src/index.js",
-    mode: "none",
+    entry: './src/index.js',
+    mode: 'none',
     module: {
         rules: [
             {
                 test: /\.js$/,
                 include: [
-                    path.resolve(__dirname, "src")
+                    path.resolve(__dirname, 'src')
                 ],
                 exclude: /node_modules/,
-                loader: "babel-loader",
+                loader: 'babel-loader',
                 options: {
                     presets: [
-                        "@babel/env",
-                        "@babel/preset-react"
+                        '@babel/env',
+                        '@babel/preset-react'
                     ]
                 }
             },
             {
                 test: /\.css$/,
                 use: [
-                    "style-loader",
-                    "css-loader"
+                    'style-loader',
+                    'css-loader'
                 ]
             }
         ]
     },
     output: {
-        path: path.resolve(__dirname, "build/"),
-        publicPath: ".",
-        filename: "bundle.js"
+        path: path.resolve(__dirname, 'build/'),
+        publicPath: '.',
+        filename: 'bundle.[contenthash].js'
     },
     devServer: {
-        contentBase: path.resolve(__dirname, "build/"),
+        contentBase: path.resolve(__dirname, 'build/'),
         port: 3000,
-        publicPath: "http://localhost:3000/",
+        publicPath: 'http://localhost:3000/',
     },
     plugins: [
+        new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
-            title: "App",
+            title: 'App',
             template: 'public/index.html',
             favicon: 'public/favicon.ico',
             minify: {
