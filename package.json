@@ -12,7 +12,7 @@
     "homepage": "https://github.com/mebinrobin/react-starter#readme",
     "description": "",
     "scripts": {
-        "build": "NODE_ENV=production webpack",
+        "build": "NODE_ENV=production webpack --hide-modules",
         "dev": "NODE_ENV=development webpack-dev-server"
     },
     "author": "Mebin Robin",

@@ -34,8 +34,19 @@ module.exports = Object.assign({}, {
     },
     output: {
         path: path.resolve(__dirname, 'build/'),
-        publicPath: '.',
+        publicPath: './',
         filename: '[name].[contenthash].js'
+    },
+    optimization: {
+        splitChunks: {
+            cacheGroups: {
+                vendor: {
+                  test: /[\\/]node_modules[\\/]/,
+                  name: 'vendors',
+                  chunks: 'all'
+                }
+            }
+        }
     },
     plugins: [
         new CleanWebpackPlugin(),
