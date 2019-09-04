@@ -13,7 +13,8 @@
     "description": "",
     "scripts": {
         "build": "./node_modules/.bin/webpack --hide-modules --env.production",
-        "dev": "./node_modules/.bin/webpack-dev-server --env.development"
+        "dev": "./node_modules/.bin/webpack-dev-server --env.development",
+        "make-config-only-branch": "git checkout config-only && "
     },
     "author": {
         "name": "Mebin Robin",
@@ -25,9 +26,11 @@
         "@babel/core": "^7.5.5",
         "@babel/preset-env": "^7.5.5",
         "@babel/preset-react": "^7.0.0",
+        "babel-eslint": "^10.0.3",
         "babel-loader": "^8.0.6",
         "clean-webpack-plugin": "^3.0.0",
         "css-loader": "^3.2.0",
+        "eslint": "^6.3.0",
         "eslint-plugin-react": "^7.14.3",
         "html-webpack-plugin": "^3.2.0",
         "mini-css-extract-plugin": "^0.8.0",
@@ -54,6 +57,7 @@
         "map": false
     },
     "eslintConfig": {
+        "parser": "babel-eslint",
         "env": {
             "browser": true,
             "node": true
