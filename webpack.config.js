@@ -34,7 +34,7 @@ module.exports = (env) => {
                     loader: 'postcss-loader',
                     options: {
                         ident: 'postcss',
-                        plugins: () => [
+                        plugins: [
                             require('postcss-preset-env')()
                         ]
                     }
