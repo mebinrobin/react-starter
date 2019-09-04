@@ -12,10 +12,13 @@
     "homepage": "https://github.com/mebinrobin/react-starter#readme",
     "description": "",
     "scripts": {
-        "build": "NODE_ENV=production webpack --hide-modules",
-        "dev": "NODE_ENV=development webpack-dev-server"
+        "build": "./node_modules/.bin/webpack --hide-modules --env.production",
+        "dev": "./node_modules/.bin/webpack-dev-server --env.development"
     },
-    "author": "Mebin Robin",
+    "author": {
+        "name": "Mebin Robin",
+        "url": "https://www.mebinrobin.com"
+    },
     "license": "MIT",
     "devDependencies": {
         "@babel/cli": "^7.5.5",
@@ -25,14 +28,71 @@
         "babel-loader": "^8.0.6",
         "clean-webpack-plugin": "^3.0.0",
         "css-loader": "^3.2.0",
+        "eslint-plugin-react": "^7.14.3",
+        "html-webpack-inline-source-plugin": "0.0.10",
         "html-webpack-plugin": "^3.2.0",
+        "mini-css-extract-plugin": "^0.8.0",
+        "optimize-css-assets-webpack-plugin": "^5.0.3",
+        "postcss-loader": "^3.0.0",
+        "postcss-preset-env": "^6.7.0",
+        "script-ext-html-webpack-plugin": "^2.1.4",
         "style-loader": "^1.0.0",
+        "terser-webpack-plugin": "^1.4.1",
         "webpack": "^4.39.3",
         "webpack-cli": "^3.3.7",
         "webpack-dev-server": "^3.8.0"
     },
     "dependencies": {
+        "normalize.css": "^8.0.1",
         "react": "^16.9.0",
         "react-dom": "^16.9.0"
+    },
+    "browserslist": [
+        "cover 99.5%",
+        "not dead"
+    ],
+    "postcss": {
+        "map": false,
+        "plugins": {}
+    },
+    "eslintConfig": {
+        "env": {
+            "browser": true,
+            "node": true
+        },
+        "parserOptions": {
+            "ecmaVersion": 6,
+            "sourceType": "module",
+            "ecmaFeatures": {
+                "jsx": true
+            }
+        },
+        "extends": [
+            "eslint:recommended",
+            "plugin:react/recommended"
+        ],
+        "settings": {
+            "react": {
+                "version": "detect"
+            }
+        },
+        "rules": {
+            "dot-location": [
+                "warn",
+                "property"
+            ],
+            "quotes": [
+                "warn",
+                "single"
+            ],
+            "semi": [
+                "warn",
+                "always"
+            ],
+            "comma-dangle": [
+                "error",
+                "never"
+            ]
+        }
     }
 }

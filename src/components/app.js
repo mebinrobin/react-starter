@@ -4,7 +4,7 @@ class App extends Component {
     render() {
         return <Fragment>
             Hello world
-        </Fragment>
+        </Fragment>;
     }
 }
 
