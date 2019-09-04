@@ -29,7 +29,6 @@
         "clean-webpack-plugin": "^3.0.0",
         "css-loader": "^3.2.0",
         "eslint-plugin-react": "^7.14.3",
-        "html-webpack-inline-source-plugin": "0.0.10",
         "html-webpack-plugin": "^3.2.0",
         "mini-css-extract-plugin": "^0.8.0",
         "optimize-css-assets-webpack-plugin": "^5.0.3",
@@ -48,12 +47,11 @@
         "react-dom": "^16.9.0"
     },
     "browserslist": [
-        "cover 99.5%",
+        ">0.1%",
         "not dead"
     ],
     "postcss": {
-        "map": false,
-        "plugins": {}
+        "map": false
     },
     "eslintConfig": {
         "env": {
@@ -61,7 +59,7 @@
             "node": true
         },
         "parserOptions": {
-            "ecmaVersion": 6,
+            "ecmaVersion": 8,
             "sourceType": "module",
             "ecmaFeatures": {
                 "jsx": true
