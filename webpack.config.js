@@ -70,7 +70,6 @@ module.exports = (env) => {
                 title: 'App',
                 template: 'public/index.html',
                 favicon: 'public/favicon.ico',
-                inlineSource: 'runtime~.+\\.js',
                 minify: isProduction && {
                     collapseWhitespace: true,
                     removeComments: true,
