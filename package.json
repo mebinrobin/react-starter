@@ -14,7 +14,7 @@
     "scripts": {
         "build": "./node_modules/.bin/webpack --hide-modules --env.production",
         "dev": "./node_modules/.bin/webpack-dev-server --env.development",
-        "make-config-only-branch": "git checkout config-only &&  git checkout master webpack.config.js && git add webpack.config.js && git commit -m 'Update config' && git push"
+        "make-config-only-branch": "git checkout config-only && git checkout master webpack.config.js && git add webpack.config.js && git commit -m 'Update config' && git push"
     },
     "author": {
         "name": "Mebin Robin",
