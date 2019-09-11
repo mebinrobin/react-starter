@@ -75,8 +75,8 @@ module.exports = (env) => {
             new CleanWebpackPlugin(),
             new HtmlWebpackPlugin({
                 title: 'App',
-                template: 'public/index.html',
-                favicon: 'public/favicon.ico',
+                template: resolve(__dirname, 'src/static/index.html'),
+                favicon: resolve(__dirname, 'src/static/favicon.ico'),
                 minify: isProduction && {
                     collapseWhitespace: true,
                     removeComments: true,
