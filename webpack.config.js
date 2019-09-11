@@ -11,7 +11,7 @@ module.exports = (env) => {
     const isDevelopment = env.development === true;
 
     return Object.assign({
-        entry: './src/index.js',
+        entry: resolve(__dirname, 'src/index.js'),
         mode: isDevelopment ? 'development' : isProduction && 'production',
         module: {
             rules: [{
