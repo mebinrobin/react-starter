@@ -32,20 +32,20 @@ module.exports = (env) => {
                 {
                     loader: 'css-loader',
                     options: {
-                        modules: {
-                            localIdentName: '[name]_[local]-[hash:base64:5]'
-                        }
-                    }
-                },
-                {
-                    loader: 'postcss-loader',
-                    options: {
-                        ident: 'postcss',
-                        plugins: [
-                            require('postcss-preset-env')()
-                        ]
+                        modules: false
                     }
                 }]
+            }, {
+                test: /\.s[ac]ss$/i,
+                use: [
+                'style-loader',
+                {
+                    loader: 'css-loader',
+                    options: {
+                        modules: false
+                    }
+                },
+                'sass-loader']
             }]
         },
         output: {
