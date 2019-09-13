@@ -22,30 +22,18 @@ module.exports = (env) => {
                 exclude: /node_modules/,
                 loader: 'babel-loader',
                 options: {
-                    presets: ['@babel/preset-env', '@babel/preset-react']
+                    presets: [
+                        '@babel/preset-env',
+                        '@babel/preset-react'
+                    ]
                 }
-            }, {
-                test: /\.css$/,
-                use: [{
-                    loader: MiniCssExtractPlugin.loader
-                },
-                {
-                    loader: 'css-loader',
-                    options: {
-                        modules: false
-                    }
-                }]
             }, {
                 test: /\.s[ac]ss$/i,
                 use: [
-                'style-loader',
-                {
-                    loader: 'css-loader',
-                    options: {
-                        modules: false
-                    }
-                },
-                'sass-loader']
+                    { loader: MiniCssExtractPlugin.loader },
+                    'css-loader',
+                    'sass-loader'
+                ]
             }]
         },
         output: {
@@ -58,23 +46,23 @@ module.exports = (env) => {
             splitChunks: {
                 cacheGroups: {
                     vendor: {
-                        test: /[\\/]node_modules[\\/]/,
+                        test: /node_modules/,
                         name: 'vendors',
                         chunks: 'all'
                     }
                 }
             },
             runtimeChunk: true,
-            minimize: isProduction,
             minimizer: [
-                new TerserPlugin(),
+                new TerserPlugin({
+                    extractComments: false
+                }),
                 new OptimizeCssAssetsPlugin()
             ]
         },
         plugins: [
             new CleanWebpackPlugin(),
             new HtmlWebpackPlugin({
-                title: 'App',
                 template: resolve(__dirname, 'src/static/index.html'),
                 favicon: resolve(__dirname, 'src/static/favicon.ico'),
                 minify: isProduction && {
@@ -93,7 +81,7 @@ module.exports = (env) => {
                 ignoreOrder: false
             })
         ],
-        devtool: isDevelopment ? 'source-map' : 'none',
+        devtool: isDevelopment ? 'inline-source-map' : 'source-map',
         devServer: {
             port: 3000,
             publicPath: 'http://localhost:3000/'
