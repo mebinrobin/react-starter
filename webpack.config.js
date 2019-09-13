@@ -5,6 +5,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = (env) => {
     const isProduction = env.production === true;
@@ -64,7 +65,6 @@ module.exports = (env) => {
             new CleanWebpackPlugin(),
             new HtmlWebpackPlugin({
                 template: resolve(__dirname, 'src/static/index.html'),
-                favicon: resolve(__dirname, 'src/static/favicon.ico'),
                 minify: isProduction && {
                     collapseWhitespace: true,
                     removeComments: true,
@@ -77,9 +77,16 @@ module.exports = (env) => {
             }),
             new MiniCssExtractPlugin({
                 filename: '[name].[contenthash].css',
-                chunkFilename: '[id].[contenthash].css',
+                chunkFilename: '[name].[contenthash].chunk.css',
                 ignoreOrder: false
-            })
+            }),
+            new CopyPlugin([
+                {
+                    from: resolve(__dirname, 'src/static/'),
+                    to: resolve(__dirname, 'build/'),
+                    ignore: ['index.html']
+                }
+            ])
         ],
         devtool: isDevelopment ? 'inline-source-map' : 'source-map',
         devServer: {
