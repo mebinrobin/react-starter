@@ -64,7 +64,7 @@ module.exports = (env) => {
     plugins: [
       new CleanWebpackPlugin(),
       new HtmlWebpackPlugin({
-        template: resolve(__dirname, 'src/static/index.html'),
+        template: resolve(__dirname, 'src/index.html'),
         minify: isProduction && {
           collapseWhitespace: true,
           removeComments: true,
@@ -82,7 +82,7 @@ module.exports = (env) => {
       }),
       new CopyPlugin([
         {
-          from: resolve(__dirname, 'src/static/'),
+          from: resolve(__dirname, 'public/'),
           to: resolve(__dirname, 'build/'),
           ignore: ['index.html']
         }
