@@ -94,7 +94,7 @@ module.exports = (env) => {
         }
       ])
     ],
-    devtool: isDevelopment ? 'inline-source-map' : 'source-map',
+    devtool: isDevelopment ? 'source-map' : 'none',
     devServer: {
       port: 3000,
       publicPath: 'http://localhost:3000/'
