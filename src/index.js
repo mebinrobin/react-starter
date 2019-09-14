@@ -4,4 +4,6 @@ import './index.scss';
 
 import App from './components/app';
 
-render(<App />, document.getElementById('app'));
+const rootElement = document.getElementById('app');
+
+render(<App />, rootElement);
