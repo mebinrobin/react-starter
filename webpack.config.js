@@ -21,13 +21,17 @@ module.exports = (env) => {
           resolve(__dirname, 'src')
         ],
         exclude: /node_modules/,
-        loader: 'babel-loader',
-        options: {
-          presets: [
-            '@babel/preset-env',
-            '@babel/preset-react'
-          ]
-        }
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              presets: [
+                '@babel/preset-env',
+                '@babel/preset-react'
+              ]
+            }
+          }
+        ]
       }, {
         test: /\.(css|s[ac]ss)$/i,
         use: [
