@@ -51,13 +51,7 @@ module.exports = (env) => {
     optimization: {
       moduleIds: 'hashed',
       splitChunks: {
-        cacheGroups: {
-          vendor: {
-            test: /node_modules/,
-            name: 'vendors',
-            chunks: 'all'
-          }
-        }
+        chunks: 'all'
       },
       runtimeChunk: true,
       minimizer: [
