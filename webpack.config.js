@@ -29,7 +29,7 @@ module.exports = (env) => {
           ]
         }
       }, {
-        test: /\.s[ac]ss$/i,
+        test: /\.(css|s[ac]ss)$/i,
         use: [
           { loader: MiniCssExtractPlugin.loader },
           'css-loader',
