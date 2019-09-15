@@ -7,6 +7,9 @@ const TerserPlugin = require('terser-webpack-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 
+const BUILD_PATH = resolve(__dirname, 'build/');
+const SOURCE_PATH = resolve(__dirname, 'src/');
+
 module.exports = (env) => {
   const isProduction = env.production === true;
   const isDevelopment = env.development === true;
@@ -17,9 +20,7 @@ module.exports = (env) => {
     module: {
       rules: [{
         test: /\.js$/,
-        include: [
-          resolve(__dirname, 'src')
-        ],
+        include: SOURCE_PATH,
         exclude: /node_modules/,
         use: [
           {
@@ -34,6 +35,7 @@ module.exports = (env) => {
         ]
       }, {
         test: /\.(css|s[ac]ss)$/i,
+        include: SOURCE_PATH,
         use: [
           {
             loader: MiniCssExtractPlugin.loader
@@ -44,7 +46,7 @@ module.exports = (env) => {
       }]
     },
     output: {
-      path: resolve(__dirname, 'build/'),
+      path: BUILD_PATH,
       publicPath: './',
       filename: '[name].[contenthash].js'
     },
@@ -83,7 +85,7 @@ module.exports = (env) => {
       new CopyPlugin([
         {
           from: resolve(__dirname, 'public/'),
-          to: resolve(__dirname, 'build/'),
+          to: BUILD_PATH,
           ignore: ['index.html']
         }
       ])
