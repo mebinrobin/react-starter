@@ -12,8 +12,8 @@
   "homepage": "https://github.com/mebinrobin/react-starter#readme",
   "description": "",
   "scripts": {
-    "build": "./node_modules/.bin/webpack --hide-modules --env.production",
-    "dev": "./node_modules/.bin/webpack-dev-server --env.development",
+    "build": "webpack --hide-modules --env.production",
+    "dev": "webpack-dev-server --env.development",
     "make-config-only-branch": "git checkout config-only && git checkout master webpack.config.js && git checkout master package.json && git add webpack.config.js && git add package.json && git commit -m 'Update config' && git push"
   },
   "author": {
