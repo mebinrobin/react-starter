@@ -93,10 +93,8 @@ module.exports = (env) => {
     devtool: isDevelopment ? 'source-map' : 'none',
     devServer: {
       port: 3000,
-      publicPath: 'http://localhost:3000/'
-    },
-    stats: {
-      children: false
+      publicPath: 'http://localhost:3000/',
+      stats: 'minimal'
     }
   });
 };
