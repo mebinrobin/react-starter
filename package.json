@@ -13,8 +13,7 @@
   "description": "",
   "scripts": {
     "build": "webpack --hide-modules --env.production",
-    "dev": "webpack-dev-server --env.development",
-    "make-config-only-branch": "git checkout config-only && git checkout master webpack.config.js && git checkout master package.json && git add webpack.config.js && git add package.json && git commit -m 'Update config' && git push"
+    "dev": "webpack-dev-server --env.development"
   },
   "author": {
     "name": "Mebin Robin",
@@ -33,14 +32,14 @@
     "css-loader": "^3.4.2",
     "eslint": "^6.8.0",
     "eslint-plugin-react": "^7.19.0",
-    "html-webpack-plugin": "^4.0.0",
+    "html-webpack-plugin": "^4.0.4",
     "mini-css-extract-plugin": "^0.9.0",
     "node-sass": "^4.13.1",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
     "sass-loader": "^8.0.2",
     "script-ext-html-webpack-plugin": "^2.1.4",
     "terser-webpack-plugin": "^2.3.5",
-    "webpack": "^4.42.1",
+    "webpack": "^5.0.0-beta.14",
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.10.3"
   },

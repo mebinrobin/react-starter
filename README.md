@@ -1,5 +1,6 @@
 # React Starter
 A basic ReactJS starter kit highly inspired from [create-react-app](https://github.com/facebook/create-react-app).
+This starter uses the beta releases of Webpack.
 
 ## Start development
     npm i
