@@ -1,10 +1,10 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component, StrictMode } from 'react';
 
 class App extends Component {
   render() {
-    return <Fragment>
+    return <StrictMode>
       Hello world
-    </Fragment>;
+    </StrictMode>;
   }
 }
 
