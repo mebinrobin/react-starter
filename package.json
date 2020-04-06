@@ -12,8 +12,8 @@
   "homepage": "https://github.com/mebinrobin/react-starter#readme",
   "description": "",
   "scripts": {
-    "build": "webpack --hide-modules --env.production",
-    "dev": "webpack-dev-server --env.development"
+    "build": "webpack --config ./config/webpack.config.js --env.production",
+    "start": "webpack-dev-server --env.development"
   },
   "author": {
     "name": "Mebin Robin",
@@ -31,6 +31,7 @@
     "copy-webpack-plugin": "^5.1.1",
     "css-loader": "^3.4.2",
     "eslint": "^6.8.0",
+    "eslint-config-google": "^0.14.0",
     "eslint-plugin-react": "^7.19.0",
     "html-webpack-plugin": "^4.0.4",
     "mini-css-extract-plugin": "^0.9.0",
@@ -50,46 +51,5 @@
   "browserslist": [
     ">0.1%",
     "not dead"
-  ],
-  "eslintConfig": {
-    "parser": "babel-eslint",
-    "env": {
-      "browser": true,
-      "node": true
-    },
-    "parserOptions": {
-      "ecmaVersion": 8,
-      "sourceType": "module",
-      "ecmaFeatures": {
-        "jsx": true
-      }
-    },
-    "extends": [
-      "eslint:recommended",
-      "plugin:react/recommended"
-    ],
-    "settings": {
-      "react": {
-        "version": "detect"
-      }
-    },
-    "rules": {
-      "dot-location": [
-        "warn",
-        "property"
-      ],
-      "quotes": [
-        "warn",
-        "single"
-      ],
-      "semi": [
-        "warn",
-        "always"
-      ],
-      "comma-dangle": [
-        "error",
-        "never"
-      ]
-    }
-  }
+  ]
 }
