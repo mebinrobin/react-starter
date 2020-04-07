@@ -50,14 +50,14 @@ module.exports = (env) => {
     output: {
       path: BUILD_PATH,
       publicPath: './static/',
-      filename: './static/[name].[contenthash].js'
+      filename: './static/[name].[contenthash:10].js'
     },
     optimization: {
       splitChunks: {
         chunks: 'all',
         minSize: 0,
         cacheGroups: {
-            globalVendor: {
+            initialVendor: {
                 test: /[\\/]node_modules[\\/]/,
                 name: 'vendor',
                 chunks: 'initial'
